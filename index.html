@@ -8,22 +8,53 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <header>
-        <h1 id="title">Coffee Rush</h1>
-    </header>
     <main>
-        <div class="screen start">
+        <div class="screen start hide">
                 <!-- the start screen for the game -->
+                <h1 id="title">Coffee Rush</h1>
+                <button id="how-to">How To Play</button>
+                <button id="play-game">Play The Game</button>
+        </div>
+        <div class="screen instructions hide">
+            <!-- The instructions screen -->
+            <p>
+                You are the only barista on the clock right now.<br>
+                Take the customers orders and make their coffee as they ask.<br>
+            </p>
+            <p>
+                Use the WASD, the arrow keys, or click the coresponding buttons to add the correct amount of espresso shots, flavor pumps, milk, and sugar<br>
+                Press the Serve button to give the customer their coffee.<br>
+                If you messed up the order, you can touch the Trash button to start the order over.<br>
+                If the order is right, your Tips will go up!<br>
+                If the order is wrong, you get no tips and move on to the next order.<br>
+                Complete as many orders as you can in 60 seconds and earn those Tips!<br>
+            </p>
+            <button id="main-menu">Main Menu</button>
+            <button id="play-game">Play The Game</button>
         </div>
         <div class="screen game">
-            <h3 id="score">Tips</h3>
-            <h3 id="timer">60s</h3>
-            <canvas id="game-screen">
-                <!-- actual game screen -->
-            </canvas>
+            <div class="container" id="top-half">
+                <h3 id="score">Tips</h3>
+                <h3 id="timer">60s</h3>
+                <p>"I want (Order goes here)"</p>
+            </div>
+            <div class="button-set" id="bottom-half">
+                <!-- use grid to arrange buttons -->
+                <button class="coffee-game" id="shots">Shots</button>
+                <button class="coffee-game" id="flavor">Flavor</button>
+                <button class="coffee-game" id="milk">Milk</button>
+                <button class="coffee-game" id="sugar">Sugar</button>
+                <button class="coffee-game" id="reset">Trash/Reset</button>
+                <button class="coffee-game" id="serve">Serve!</button>
+            </div>
         </div>
-        <div class="screen score">
+        <div class="screen score hide">
                 <!-- the scoring screen -->
+            <h1>Pay Out</h1>
+            <h2>You made...</h3>
+            <h1>(insert point amount here)</h1>
+            <button id="try-again">Try Again?</button>
+            <button id="main-menu">Main Menu</button>
         </div>
         </main>
     <script src="./js/app.js"></script>

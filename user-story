@@ -29,4 +29,48 @@ Score Screen: When the score screen loads I want to see;
         (the score should look like tips)
     -a try again button
     -a back to menu button to return to the start screen
+
+
+
+
+/*Things I need for the game to work:
+*Main Screen: 
+**To be the display screen when the page loads
+**To hide when the respective 'How to' and 'Play' buttons are hit
+
+*Instructions:
+**To display when the 'How to' is clicked
+**to look like the game screen (perhaps imgs?) and highlight each aspect
+**to teach how the aspects function in the game
+
+*Game Screen:
+
+**Tips/Score: to add on for each correct order
+***(if order is more complex, higher points? total amount of numbers = score?)
+****(maybe 4< gets $1.00, 8< gets $2.00, 12< gets $3.00, 16+ gets $4.00)
+
+**Timer: 60 second timer(could change during test phase) counts down.
+**The round ends when the timer hits zero.
+
+**Order Window: A text bubble that contains the computers coffee order.
+**The format follows "I want (num)Shots, (num)Milks, (num)Sugars, (num)Flavors"
+**I'd like the orders to randomize both the variance of the items and the amount.  
+**But no more than 5(num)
+
+**Play Buttons: For the buttons to be attractive and responsive
+***When the (num) buttons are hit, they have a counter that shows how many they have.
+***Also a graphic change to indicate the buttons being hit.
+****color change? Maybe gets a tad smaller to indicate pressing down
+
+**Reset Button: For the button to be attractive and responsive.
+***lid opens and closes when clicked, the (num) buttons reset too
+
+**Serve Button: For the button to be attractive and responsive.
+***Also a graphic change to indicate the buttons being hit.
+****color change? Maybe gets a tad smaller to indicate pressing down
+
+**When the timer runs out: The screen changes to the Score Screen
+
+*Score Screen: Have the <h2> update with the players Tip/Score
+**To hide to the 'play again' and 'main menu' button responses
     
