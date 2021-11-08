@@ -1,0 +1,32 @@
+Screen Load: When the game loads I want to see the Start Screen;
+    -The game title, the start button and the instructions button
+
+Instructions: When the instructions load, I want to see;
+    -an overlay of the game play page
+     each aspect highlighted as you click through the next button, 
+     explaining each function.
+     at the end there is a menu button and a start button  
+        -menu leads back to the start screen
+        -start leads to the game
+
+Game Screen: When the game loads I want to see;
+    (top half of the screen)
+        -the score on the top left
+        -the timer on the top right
+        -a visual of the coffee shop
+        -a visual of the given order
+    (bottom half of the screen)
+        -the buttons to add to the coffee order
+            -feedback each time the button is clicked to show that
+             the order number has gone up
+        -the button to serve the coffee order
+            -feedback if the order was right or if the order was wrong
+        -a trash button to reset the current coffee order
+            -feedback when it's clicked to show that it reset the order
+
+Score Screen: When the score screen loads I want to see;
+    -the final score
+        (the score should look like tips)
+    -a try again button
+    -a back to menu button to return to the start screen
+    
