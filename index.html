@@ -9,13 +9,13 @@
 </head>
 <body>
     <main>
-        <div class="screen start hide">
+        <div class="screen start">
                 <!-- the start screen for the game -->
                 <h1 id="title">Coffee Rush</h1>
-                <button id="how-to">How To Play</button>
-                <button id="play-game">Play The Game</button>
+                <button class="switch" id="how-to">How To Play</button>
+                <button class="switch id="play-game">Play The Game</button>
         </div>
-        <div class="screen instructions hide">
+        <div class="screen instructions hidden">
             <!-- The instructions screen -->
             <p>
                 You are the only barista on the clock right now.<br>
@@ -29,10 +29,10 @@
                 If the order is wrong, you get no tips and move on to the next order.<br>
                 Complete as many orders as you can in 60 seconds and earn those Tips!<br>
             </p>
-            <button class="main-menu" id="main-menu">Main Menu</button>
-            <button class="play-game" id="play-game">Play The Game</button>
+            <button class="main-menu switch" id="main-menu">Main Menu</button>
+            <button class="play-game switch" id="play-game">Play The Game</button>
         </div>
-        <div class="screen game">
+        <div class="screen game hidden">
             <div class="container" id="top-half">
                 <h3 id="score">Tips</h3>
                 <h3 id="timer">60s</h3>
@@ -51,13 +51,13 @@
                 <button class="main-menu" id="quit">Quit</button>
             </div>
         </div>
-        <div class="screen score hide">
+        <div class="screen score hidden">
                 <!-- the scoring screen -->
             <h1>Pay Out</h1>
             <h2>You made...</h3>
             <h1>(insert point amount here)</h1>
-            <button class="play-game" id="try-again">Try Again?</button>
-            <button class="main-menu" id="main-menu">Main Menu</button>
+            <button class="play-game switch" id="try-again">Try Again?</button>
+            <button class="main-menu switch" id="main-menu">Main Menu</button>
         </div>
         </main>
     <script src="./js/app.js"></script>
