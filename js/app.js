@@ -92,12 +92,28 @@ playFromInstruct.onclick = function () {
 //The Timer
 function timerCountdown () { //declare the function
     //display the timer on the page in the #timer element
-    let timerText = document.getElementById("timer");
-    let i;
-        for (i = 60; i >  )
-        
+    let timeLeft = 60;
+    let countdownTimer = setInterval(function(){
+        if (timeLeft <= 0){
+            clearInterval(countdownTimer);
+            clearInterval(timerCountdown);
+            document.getElementById("timer").innerText = "Times Up"
+        } else {
+            document.getElementById("timer").innerText = timeLeft + "s";
+        }
+        timeLeft -= 1;
+    }, 1000);
 }
-
+// let timeleft = 60;
+// let downloadTimer = setInterval(function(){
+//   if(timeleft <= 0){
+//     clearInterval(downloadTimer);
+//     document.getElementById("timer").innerHTML = "Finished";
+//   } else {
+//     document.getElementById("timer").innerHTML = timeleft + " seconds remaining";
+//   }
+//   timeleft -= 1;
+// }, 1000);
 
 //The Tip Counter
 
