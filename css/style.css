@@ -8,3 +8,8 @@ div {
 .hidden {
     display: none
 }
+
+.box {
+    background-color: black;
+    color: white;
+}

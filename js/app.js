@@ -5,6 +5,7 @@ let menuFromInstruct = document.querySelector("#main-menu2");
 let playFromInstruct = document.querySelector("#play-game2");
 let tryAgainButton = document.querySelector("#try-again");
 let quitButton = document.querySelector("#quit");
+let makeCoffeeButton = document.getElementById("lets-start");
 
 //Establishing Div Screen Sections
 let startScreen = document.querySelector("div.start");
@@ -23,14 +24,14 @@ let serveButton = document.querySelector("#serve");
 //Switching Screens
 
 //start on the Main screen
-document.onload = function () {
-    let result = startScreen.hasAttribute("hidden");
-    if (result = true) {
-        startScreen.classList.remove('hidden');
-    } else {
-        console.log("it's visible");
-    }
-}
+// document.onload = function () {
+//     let result = startScreen.hasAttribute("hidden");
+//     if (result = true) {
+//         startScreen.classList.remove('hidden');
+//     } else {
+//         console.log("it's visible");
+//     }
+// }
 
 //switching to the How-To from Main Screen
 howToButton.onclick = function () {
@@ -52,7 +53,6 @@ playGameButton.onclick = function () {
     } else {
         console.log("it's visible");
     }
-    setInterval(timerCountdown, 1000);
 }
 
 //switching to Main Menu from Play Screen
@@ -86,35 +86,32 @@ playFromInstruct.onclick = function () {
     } else {
         console.log("it's visible");
     }
-    setInterval(timerCountdown, 1000);
 }
 
 //The Timer
-function timerCountdown () { //declare the function
-    //display the timer on the page in the #timer element
-    let timeLeft = 60;
-    let countdownTimer = setInterval(function(){
-        if (timeLeft <= 0){
-            clearInterval(countdownTimer);
-            clearInterval(timerCountdown);
-            document.getElementById("timer").innerText = "Times Up"
-        } else {
-            document.getElementById("timer").innerText = timeLeft + "s";
+
+function startTimer(duration, display) {
+    var timer = duration, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = seconds + 's';
+
+        if (--timer < 0) {
+            timer = duration;
         }
-        timeLeft -= 1;
     }, 1000);
 }
-// let timeleft = 60;
-// let downloadTimer = setInterval(function(){
-//   if(timeleft <= 0){
-//     clearInterval(downloadTimer);
-//     document.getElementById("timer").innerHTML = "Finished";
-//   } else {
-//     document.getElementById("timer").innerHTML = timeleft + " seconds remaining";
-//   }
-//   timeleft -= 1;
-// }, 1000);
 
+makeCoffeeButton.onclick = function () {
+    var fiveMinutes = 60 * 1,
+        display = document.querySelector('#timer');
+    startTimer(fiveMinutes, display);
+};
 //The Tip Counter
 
 //The game Interval (60second round)
