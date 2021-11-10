@@ -24,15 +24,15 @@ let serveButton = document.querySelector("#serve");
 
 //Switching Screens
 
-//start on the Main screen
-// document.onload = function () {
-//     let result = startScreen.hasAttribute("hidden");
-//     if (result = true) {
-//         startScreen.classList.remove('hidden');
-//     } else {
-//         console.log("it's visible");
-//     }
-// }
+// start on the Main screen
+document.onload = function () {
+    let result = startScreen.hasAttribute("hidden");
+    if (result = true) {
+        startScreen.classList.remove('hidden');
+    } else {
+        console.log("it's visible");
+    }
+}
 
 //switching to the How-To from Main Screen
 howToButton.onclick = function () {
@@ -175,18 +175,31 @@ let coffeeOrder = {
     'flavors': ['mocha','caramel','mint','pumpkin spice',]
 };
 
-function buildCustomerOrder(shots, milks, sugars, pumps, flavors) {
-    let num = Math.floor(Math.random() * coffeeOrder.key);
+function buildCustomOrder(shots, milks, sugars, pumps, flavors) {
+    let num = generateRandomNumber();
+    let string = generateRandomFlavor();
     let customerOrder = {
-        'shots': (num),
-        'milks': (num),
-        'sugars':(num),
-        'pumps': (num),
-        'flavors': (string)
-    }
+        'shots': num,
+        'milks': num,
+        'sugars': num,
+        'pumps': num,
+        'flavors': string,
+    };
+    console.log(customOrder);
 };
+buildCustomOrder();
 
-console.log(buildCustomerOrder());
-// //     //4 elements in an order
-// //     //but an order can be any combination of the 4
-// //     //each element can have an amount up to 3
+
+//random number generator
+function generateRandomNumber() {
+    let integer = Math.floor((Math.random() * 3) + 1);
+    console.log(integer);
+    return integer;
+
+};
+//random flavor generator
+function generateRandomFlavor(){
+    let i = Math.floor((Math.random() * 4) + 1);
+    console.log(coffeeOrder.flavors[i]);
+    return coffeeOrder.flavors[i];
+};
