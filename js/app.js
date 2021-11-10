@@ -6,6 +6,7 @@ let playFromInstruct = document.querySelector("#play-game2");
 let tryAgainButton = document.querySelector("#try-again");
 let quitButton = document.querySelector("#quit");
 let makeCoffeeButton = document.getElementById("lets-start");
+let menuFromScore = document.querySelector("#return");
 
 //Establishing Div Screen Sections
 let startScreen = document.querySelector("div.start");
@@ -37,6 +38,7 @@ let serveButton = document.querySelector("#serve");
 howToButton.onclick = function () {
     let result = howToMenu.hasAttribute("hidden");
     if (result = true) {
+        clearInterval();
         howToMenu.classList.remove('hidden');
         startScreen.classList.add('hidden');
     } else {
@@ -48,6 +50,7 @@ howToButton.onclick = function () {
 playGameButton.onclick = function () {
     let result = gameScreen.hasAttribute("hidden");
     if (result = true) {
+        clearInterval();
         gameScreen.classList.remove('hidden');
         startScreen.classList.add('hidden');
     } else {
@@ -59,6 +62,7 @@ playGameButton.onclick = function () {
 quitButton.onclick = function () {
     let result = startScreen.hasAttribute("hidden");
     if (result = true) {
+        clearInterval();
         startScreen.classList.remove('hidden');
         gameScreen.classList.add('hidden');
     } else {
@@ -70,6 +74,7 @@ quitButton.onclick = function () {
 menuFromInstruct.onclick = function () {
     let result = startScreen.hasAttribute("hidden");
     if (result = true) {
+        clearInterval();
         startScreen.classList.remove('hidden');
         howToMenu.classList.add('hidden');
     } else {
@@ -81,6 +86,7 @@ menuFromInstruct.onclick = function () {
 playFromInstruct.onclick = function () {
     let result = gameScreen.hasAttribute("hidden");
     if (result = true) {
+        clearInterval();
         gameScreen.classList.remove('hidden');
         howToMenu.classList.add('hidden');
     } else {
@@ -88,53 +94,99 @@ playFromInstruct.onclick = function () {
     }
 }
 
-//The Timer
-
-function startTimer(duration, display) {
-    var timer = duration, seconds;
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
-
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = seconds + 's';
-
-        if (--timer < 0) {
-            timer = duration;
-        }
-    }, 1000);
+//switching to the Game Screen from Score Screen
+tryAgainButton.onclick = function () {
+    let result = gameScreen.hasAttribute("hidden");
+    if (result = true) {
+        clearInterval();
+        gameScreen.classList.remove('hidden');
+        scoreScreen.classList.add('hidden');
+    } else {
+        console.log("it's visible")
+    }
 }
 
-makeCoffeeButton.onclick = function () {
-    var fiveMinutes = 60 * 1,
-        display = document.querySelector('#timer');
-    startTimer(fiveMinutes, display);
-};
+//switching to the Main Menu from the Score Screen
+menuFromScore.onclick = function () {
+    let result = startScreen.hasAttribute("hidden");
+    if (result = true) {
+        clearInterval();
+        startScreen.classList.remove('hidden');
+        scoreScreen.classList.add('hidden');
+    } else {
+        console.log("it's visible")
+    }
+}
+
+//The Timer
+
+const timerElement = document.querySelector('#timer');
+const startButton = makeCoffeeButton
+let timer;
+let time;
+function countDown() {
+  time--;
+  timerElement.textContent = time;
+  if (time === 0) {
+    action();
+    timer = clearInterval(timer); // remove from pool
+    time = 60;
+    // timer = setInterval(countDown, 1000); // add to pool
+  }
+}
+
+function action() {
+    gameScreen.classList.add('hidden');
+    scoreScreen.classList.remove('hidden');
+}
+
+startButton.addEventListener('click', function (e) {
+  if (timer === undefined) {
+    time = 60;
+    timer = setInterval(countDown, 1000);
+  }
+});
+
 //The Tip Counter
 
-//The game Interval (60second round)
+//The game buttons
+let newNumber = 0
+function addNumber() {
+    //when you click the PlayButtons, a number gets added to end of the word
+    newNumber++;
+};
 
+shotsButton.addEventListener('click', function (e) {
+    console.log(newNumber);
+    shotsButton.textContent = shotsButton.textContent + newNumber;
+});
 //The Order
 
 
-// serveButton.onclick = function () {
+// function orderUp () {
 //     console.log(customerOrder);
 // }
 
-// let customerOrder = {
-//     let coffeeOrder = {
-//         "shots":[1,2,3],
-//         "milks":[1,2,3],
-//         "sugars":[1,2,3],
-//         "flavors":["mocha","caramel","mint"],
-//         "pumps":[1,2,3]
-//     }
-//     //randomly generate an order
-//     // return coffeeOrder;
-//     console.log(coffeeOrder);
-// }
+let coffeeOrder = {
+    'shots': [1,2,3],
+    'milks': [1,2,3],
+    'sugars': [1,2,3],
+    'pumps': [1,2,3],
+    'flavors': ['mocha','caramel','mint','pumpkin spice',]
+};
+
+function buildCustomerOrder(shots, milks, sugars, pumps, flavors) {
+    let num = Math.floor(Math.random() * coffeeOrder.key);
+    let customerOrder = {
+        'shots': (num),
+        'milks': (num),
+        'sugars':(num),
+        'pumps': (num),
+        'flavors': (string)
+    }
+};
+
+console.log(buildCustomerOrder());
 // //     //4 elements in an order
 // //     //but an order can be any combination of the 4
 // //     //each element can have an amount up to 3
