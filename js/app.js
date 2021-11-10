@@ -167,6 +167,7 @@ shotsButton.addEventListener('click', function (e) {
 //     console.log(customerOrder);
 // }
 
+//the base of the coffee order
 let coffeeOrder = {
     'shots': [1,2,3],
     'milks': [1,2,3],
@@ -174,21 +175,6 @@ let coffeeOrder = {
     'pumps': [1,2,3],
     'flavors': ['mocha','caramel','mint','pumpkin spice',]
 };
-
-function buildCustomOrder(shots, milks, sugars, pumps, flavors) {
-    let num = generateRandomNumber();
-    let string = generateRandomFlavor();
-    let customerOrder = {
-        'shots': num,
-        'milks': num,
-        'sugars': num,
-        'pumps': num,
-        'flavors': string,
-    };
-    console.log(customOrder);
-};
-buildCustomOrder();
-
 
 //random number generator
 function generateRandomNumber() {
@@ -200,6 +186,59 @@ function generateRandomNumber() {
 //random flavor generator
 function generateRandomFlavor(){
     let i = Math.floor((Math.random() * 4) + 1);
-    console.log(coffeeOrder.flavors[i]);
+    // console.log(coffeeOrder.flavors[i]);
     return coffeeOrder.flavors[i];
 };
+
+function buildCustomOrder() {
+    //randomly generates a True or False
+    let randomBoolean = Math.random() < 0.5;
+    let orderStart = "I want ";
+    let orderEnd = ".";
+    let customerOrder = {
+        'shots': [true, generateRandomNumber()],
+        'milks': [randomBoolean, generateRandomNumber()],
+        'sugars': [randomBoolean, generateRandomNumber()],
+        'pumps': [randomBoolean, generateRandomNumber()],
+        'flavors': [randomBoolean, generateRandomFlavor()],
+    };
+    if (customerOrder.shots[0] === true) {
+        let orderShots = customerOrder.shots[1] + " shots, ";
+        orderShots;
+    }
+    if (customerOrder.milks[0] === true) {
+        let orderMilks = customerOrder.milks[1] + " milks, ";
+        orderMilks;
+    }
+    if (customerOrder.sugars[0] === true) {
+        let orderSugars = customerOrder.sugars[1] + " sugars, ";
+        orderSugars;
+    }
+    if (customerOrder.pumps[0] === true) {
+        let orderPumps = customerOrder.pumps[1] + " pumps of " + customerOrder.flavors[1];
+        orderPumps;
+    };
+    let finalOrder = orderStart + toString(orderShots) + toStringorder(Milks) + toString(orderSugars) + toString(orderPumps) + toString(orderEnd);
+    console.log(finalOrder);
+    // return finalOrder;
+};
+buildCustomOrder();
+
+
+// function printCustomOrder() {
+//     let completedString = "I want ";
+//     // let x = randomBoolean;
+//     buildCustomOrder();
+//     let result = 
+//     // console.log(x);
+//     console.log(y);
+//     //build something to pick and choose what to print
+//     if (this.shots[1] = true) {
+//         return customerOrder.shots[2] + " shots";
+//     }
+
+
+//     console.log(completedString);
+//     return completedString;
+// };
+// printCustomOrder();
