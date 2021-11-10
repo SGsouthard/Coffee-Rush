@@ -16,7 +16,7 @@ let scoreScreen = document.querySelector("div.score");
 
 //Establishing Play Buttons
 let shotsButton = document.querySelector("#shots");
-let flavorButton = document.querySelector("#flavor");
+let pumpsButton = document.querySelector("#pumps");
 let milkButton = document.querySelector("#milk");
 let sugarButton = document.querySelector("#sugar");
 let resetButton = document.querySelector("#reset");
@@ -150,14 +150,6 @@ startButton.addEventListener('click', function (e) {
 //The Tip Counter
 
 
-
-//The Player Order
-/*The Player also has a coffee object similar to the customer order
-by pressing the player buttons, it adjusts the players coffee object to match
-the customers object*/
-
-
-
 //The Order
 
 //the base of the coffee order
@@ -193,8 +185,8 @@ function generateRandomFlavor() {
 //random boolean generator
 let randomBoolean = Math.random() < 0.5;
 
-function buildCustomerOrder() {
-    //Builds the customer order
+//the customers order as an object
+function randomCustomerOrder() {
     let customerOrder = {
         'shots': [true, generateRandomNumberShots()],
         'milks': [randomBoolean, generateRandomNumber()],
@@ -202,7 +194,11 @@ function buildCustomerOrder() {
         'pumps': [randomBoolean, generateRandomNumber()],
         'flavors': [randomBoolean, generateRandomFlavor()],
     };
+    return customerOrder;
+};
 
+//Builds the customer order
+function buildCustomerOrder() {
     let conditionsArr = [
         customerOrder.shots[0],
         customerOrder.milks[0],
@@ -212,7 +208,6 @@ function buildCustomerOrder() {
 
     let finalOrderArr = [];
 
-    // and 
     if (conditionsArr[0] === true && customerOrder.shots[1] > 1) {
         let shotsOrder = customerOrder.shots[1] + " shots!";
         finalOrderArr.push(shotsOrder);
@@ -250,6 +245,94 @@ function buildCustomerOrder() {
         let milksOrder = customerOrder.milks[1] + " pumps of " + customerOrder.flavors[1] + "!";
         finalOrderArr.push(milksOrder);
     }
-    return finalOrderArr.join(' ');
+    let orderBox = document.getElementById("customer-order");
+    orderBox.textContent = finalOrderArr.join(' ');
 };
-console.log(buildCustomerOrder());
+
+//The Player Order
+/*The Player also has a coffee object similar to the customer order
+by pressing the player buttons, it adjusts the players coffee object to match
+the customers object*/
+
+let playerOrder = {
+    'shots': [false, 0],
+    'milks': [false, 0],
+    'sugars': [false, 0],
+    'pumps': [false, 0],
+};
+
+/*like the Player Order, this is just an empty vessel to hold the
+added value of tips before printing it to the score bar*/
+let potentialTips = [];
+
+/*a series functions mapped to the player buttons to adjust the
+*Player Order and the visual buttons to match*/
+function addShot() {
+    let i = 1
+    if (playerOrder.shots[1] <= 2) {
+        playerOrder.shots[1] = playerOrder.shots[1] + 1;
+        playerOrder.shots[0] = true;
+        shotsButton.textContent = "Shots " + playerOrder.shots[1];
+    };
+    console.log(playerOrder);
+    return;
+}
+shotsButton.addEventListener('click', addShot);
+
+function addMilk() {
+    if (playerOrder.milks[1] <= 2) {
+        playerOrder.milks[1] = playerOrder.milks[1] + 1;
+        playerOrder.milks[0] = true;
+        milkButton.textContent = "Milk " + playerOrder.milks[1];
+    };
+    console.log(playerOrder);
+    return;
+}
+milkButton.addEventListener('click', addMilk);
+
+function addSugar() {
+    if (playerOrder.sugars[1] <= 2) {
+        playerOrder.sugars[1] = playerOrder.sugars[1] + 1;
+        playerOrder.sugars[0] = true;
+        sugarButton.textContent = "Sugar " + playerOrder.sugars[1];
+    };
+    console.log(playerOrder);
+    return;
+}
+sugarButton.addEventListener('click', addSugar);
+
+function addPump() {
+    if (playerOrder.pumps[1] <= 2) {
+        playerOrder.pumps[1] = playerOrder.pumps[1] + 1;
+        playerOrder.pumps[0] = true;
+        pumpsButton.textContent = "Pumps " + playerOrder.pumps[1];
+    };
+    console.log(playerOrder);
+    return;
+}
+pumpsButton.addEventListener('click', addPump);
+
+function resetCoffee(e) {
+    playerOrder.shots[1] = 0;
+    playerOrder.shots[0] = false;
+    shotsButton.textContent = "Shots ";
+    playerOrder.milks[1] = 0;
+    playerOrder.milks[0] = false;
+    milkButton.textContent = "Milk ";
+    playerOrder.sugars[1] = 0;
+    playerOrder.sugars[0] = false;
+    sugarButton.textContent = "Sugar ";
+    playerOrder.pumps[1] = 0;
+    playerOrder.pumps[0] = false;
+    pumpsButton.textContent = "Pump ";
+    console.log(playerOrder);
+    e.preventDefault();
+    return;
+}
+resetButton.addEventListener('click', resetCoffee);
+
+function compareOrders() {
+    if (customerOrder.shots == playerOrder.shots);
+    console.log
+}
+serveButton.addEventListener('click', compareOrders);
