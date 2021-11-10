@@ -125,14 +125,14 @@ const startButton = makeCoffeeButton
 let timer;
 let time;
 function countDown() {
-  time--;
-  timerElement.textContent = time;
-  if (time === 0) {
-    action();
-    timer = clearInterval(timer); // remove from pool
-    time = 60;
-    // timer = setInterval(countDown, 1000); // add to pool
-  }
+    time--;
+    timerElement.textContent = time;
+    if (time === 0) {
+        action();
+        timer = clearInterval(timer); // remove from pool
+        time = 60;
+        // timer = setInterval(countDown, 1000); // add to pool
+    }
 }
 
 function action() {
@@ -141,104 +141,115 @@ function action() {
 }
 
 startButton.addEventListener('click', function (e) {
-  if (timer === undefined) {
-    time = 60;
-    timer = setInterval(countDown, 1000);
-  }
+    if (timer === undefined) {
+        time = 60;
+        timer = setInterval(countDown, 1000);
+    }
 });
 
 //The Tip Counter
 
-//The game buttons
-let newNumber = 0
-function addNumber() {
-    //when you click the PlayButtons, a number gets added to end of the word
-    newNumber++;
-};
 
-shotsButton.addEventListener('click', function (e) {
-    console.log(newNumber);
-    shotsButton.textContent = shotsButton.textContent + newNumber;
-});
+
+//The Player Order
+/*The Player also has a coffee object similar to the customer order
+by pressing the player buttons, it adjusts the players coffee object to match
+the customers object*/
+
+
+
 //The Order
 
-
-// function orderUp () {
-//     console.log(customerOrder);
-// }
-
 //the base of the coffee order
+//builds an object that both the Player and Customer Orders will be based from
 let coffeeOrder = {
-    'shots': [1,2,3],
-    'milks': [1,2,3],
-    'sugars': [1,2,3],
-    'pumps': [1,2,3],
-    'flavors': ['mocha','caramel','mint','pumpkin spice',]
+    'shots': [1, 2, 3],
+    'milks': [1, 2, 3],
+    'sugars': [1, 2, 3],
+    'pumps': [1, 2, 3],
+    'flavors': ['mocha', 'caramel', 'mint', 'pumpkin spice']
 };
 
-//random number generator
+//random number generator to generate a number between 0 and 3
 function generateRandomNumber() {
-    let integer = Math.floor((Math.random() * 3) + 1);
-    console.log(integer);
+    let integer = Math.floor((Math.random() * 3));
     return integer;
-
 };
+
+//a random number generator to generate a number between 1 and 3 for the espresso shots
+//This makes sure that espresso shots will always be present in an order!
+function generateRandomNumberShots() {
+    let integer = Math.floor((Math.random() * 3) + 1);
+    return integer;
+};
+
 //random flavor generator
-function generateRandomFlavor(){
-    let i = Math.floor((Math.random() * 4) + 1);
+function generateRandomFlavor() {
+    let i = Math.floor((Math.random() * 4));
     // console.log(coffeeOrder.flavors[i]);
     return coffeeOrder.flavors[i];
 };
 
-function buildCustomOrder() {
-    //randomly generates a True or False
-    let randomBoolean = Math.random() < 0.5;
-    let orderStart = "I want ";
-    let orderEnd = ".";
+//random boolean generator
+let randomBoolean = Math.random() < 0.5;
+
+function buildCustomerOrder() {
+    //Builds the customer order
     let customerOrder = {
-        'shots': [true, generateRandomNumber()],
+        'shots': [true, generateRandomNumberShots()],
         'milks': [randomBoolean, generateRandomNumber()],
         'sugars': [randomBoolean, generateRandomNumber()],
         'pumps': [randomBoolean, generateRandomNumber()],
         'flavors': [randomBoolean, generateRandomFlavor()],
     };
-    if (customerOrder.shots[0] === true) {
-        let orderShots = customerOrder.shots[1] + " shots, ";
-        orderShots;
+
+    let conditionsArr = [
+        customerOrder.shots[0],
+        customerOrder.milks[0],
+        customerOrder.sugars[0],
+        customerOrder.pumps[0]
+    ];
+
+    let finalOrderArr = [];
+
+    // and 
+    if (conditionsArr[0] === true && customerOrder.shots[1] > 1) {
+        let shotsOrder = customerOrder.shots[1] + " shots!";
+        finalOrderArr.push(shotsOrder);
+    } else {
+        let shotsOrder = customerOrder.shots[1] + " shot!";
+        finalOrderArr.push(shotsOrder);
     }
-    if (customerOrder.milks[0] === true) {
-        let orderMilks = customerOrder.milks[1] + " milks, ";
-        orderMilks;
+    if (conditionsArr[1] === true && customerOrder.milks[1] > 0) {
+        let milksOrder = customerOrder.milks[1] + " milk!,";
+        finalOrderArr.push(milksOrder);
+    } else if (customerOrder.milks[1] = 1) {
+        let milksOrder = customerOrder.milks[1] + " milk!,";
+        finalOrderArr.push(milksOrder);
+    } else if (customerOrder.milks[1] > 1) {
+        let milksOrder = customerOrder.milks[1] + " milks!,";
+        finalOrderArr.push(milksOrder);
     }
-    if (customerOrder.sugars[0] === true) {
-        let orderSugars = customerOrder.sugars[1] + " sugars, ";
-        orderSugars;
+    if (conditionsArr[2] === true && customerOrder.sugars[1] > 0) {
+        let sugarsOrder = customerOrder.sugars[1] + " sugar!,";
+        finalOrderArr.push(sugarsOrder);
+    } else if (customerOrder.sugars[1] = 1) {
+        let milksOrder = customerOrder.sugars[1] + " sugar!,";
+        finalOrderArr.push(milksOrder);
+    } else if (customerOrder.milks[1] > 1) {
+        let milksOrder = customerOrder.milks[1] + " sugars!,";
+        finalOrderArr.push(milksOrder);
     }
-    if (customerOrder.pumps[0] === true) {
-        let orderPumps = customerOrder.pumps[1] + " pumps of " + customerOrder.flavors[1];
-        orderPumps;
-    };
-    let finalOrder = orderStart + toString(orderShots) + toStringorder(Milks) + toString(orderSugars) + toString(orderPumps) + toString(orderEnd);
-    console.log(finalOrder);
-    // return finalOrder;
+    if (conditionsArr[2] === true && customerOrder.pumps[1] > 0) {
+        let pumpsOrder = customerOrder.pumps[1] + " pump of " + customerOrder.flavors[1] + "!";
+        finalOrderArr.push(pumpsOrder);
+    } else if (customerOrder.pumps[1] = 1) {
+        let milksOrder = customerOrder.milks[1] + " pump of " + customerOrder.flavors[1] + "!";
+        finalOrderArr.push(milksOrder);
+    } else if (customerOrder.milks[1] > 1) {
+        let milksOrder = customerOrder.milks[1] + " pumps of " + customerOrder.flavors[1] + "!";
+        finalOrderArr.push(milksOrder);
+    }
+    return finalOrderArr.join(' ');
 };
-buildCustomOrder();
-
-
-// function printCustomOrder() {
-//     let completedString = "I want ";
-//     // let x = randomBoolean;
-//     buildCustomOrder();
-//     let result = 
-//     // console.log(x);
-//     console.log(y);
-//     //build something to pick and choose what to print
-//     if (this.shots[1] = true) {
-//         return customerOrder.shots[2] + " shots";
-//     }
-
-
-//     console.log(completedString);
-//     return completedString;
-// };
-// printCustomOrder();
+console.log(buildCustomerOrder());
