@@ -176,6 +176,8 @@ let customerOrder = {
 
 //Builds the customer order
 function buildCustomerOrder() {
+    let customerOrder = newCustomerOrder();
+    console.log(customerOrder);
     let conditionsArr = [
         customerOrder.shots[0],
         customerOrder.milks[0],
@@ -222,6 +224,7 @@ function buildCustomerOrder() {
         let milksOrder = customerOrder.milks[1] + " pumps of " + customerOrder.flavors[1] + "!";
         finalOrderArr.push(milksOrder);
     }
+    orderBox.textContent = finalOrderArr.join(' ');
     return finalOrderArr.join(' ');
 };
 //The Player Order
@@ -238,7 +241,7 @@ let playerOrder = {
 
 /*like the Player Order, this is just an empty vessel to hold the
 added value of tips before printing it to the score bar*/
-let potentialTips = [];
+let potentialTips = 100;
 
 /*a series functions mapped to the player buttons to adjust the
 *Player Order and the visual buttons to match*/
@@ -305,14 +308,29 @@ function resetCoffee(e) {
 }
 resetButton.addEventListener('click', resetCoffee);
 
-function serveCoffee(e) {
-    console.log('hey');
-      
-}
-serveButton.addEventListener('click', serveCoffee)
+function serveCoffee() {
+    if (customerOrder.shots !== playerOrder.shots) {
+        console.log("wrong");
+        return;
+    } else if (customerOrder.milks !== playerOrder.milks) {
+        console.log("wrong");
+        return;
+    } else if (customerOrder.sugars !== playerOrder.sugars) {
+        console.log("wrong");
+        return; 
+    } else if (customerOrder.pumps !== playerOrder.pumps) {
+        console.log("wrong");
+        return;
+    }
+    console.log("CORRECT");
+    let score = document.getElementById("score");
+    score.textContent = potentialTips;
+    return true;
+};
+serveButton.addEventListener('click', serveCoffee);
 
 function gameStart() {
-    console.log('yo');
+    buildCustomerOrder();
 }
 startButton.addEventListener('click', gameStart);
 
