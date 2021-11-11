@@ -3,10 +3,11 @@ let howToButton = document.querySelector("#how-to");
 let playGameButton = document.querySelector("#play-game");
 let menuFromInstruct = document.querySelector("#main-menu2");
 let playFromInstruct = document.querySelector("#play-game2");
-let tryAgainButton = document.querySelector("#try-again");
+// let tryAgainButton = document.querySelector("#try-again");
 let quitButton = document.querySelector("#quit");
 let makeCoffeeButton = document.getElementById("lets-start");
 let menuFromScore = document.querySelector("#return");
+let orderBox = document.getElementById("customer-order");
 
 //Establishing Div Screen Sections
 let startScreen = document.querySelector("div.start");
@@ -38,7 +39,6 @@ document.onload = function () {
 howToButton.onclick = function () {
     let result = howToMenu.hasAttribute("hidden");
     if (result = true) {
-        clearInterval();
         howToMenu.classList.remove('hidden');
         startScreen.classList.add('hidden');
     } else {
@@ -50,7 +50,6 @@ howToButton.onclick = function () {
 playGameButton.onclick = function () {
     let result = gameScreen.hasAttribute("hidden");
     if (result = true) {
-        clearInterval();
         gameScreen.classList.remove('hidden');
         startScreen.classList.add('hidden');
     } else {
@@ -60,33 +59,18 @@ playGameButton.onclick = function () {
 
 //switching to Main Menu from Play Screen
 quitButton.onclick = function () {
-    let result = startScreen.hasAttribute("hidden");
-    if (result = true) {
-        clearInterval();
-        startScreen.classList.remove('hidden');
-        gameScreen.classList.add('hidden');
-    } else {
-        console.log("it's visible");
-    }
+    window.location.reload();
 }
 
 //switching to the Main Menu from Instruction
 menuFromInstruct.onclick = function () {
-    let result = startScreen.hasAttribute("hidden");
-    if (result = true) {
-        clearInterval();
-        startScreen.classList.remove('hidden');
-        howToMenu.classList.add('hidden');
-    } else {
-        console.log("it's visible");
-    }
+    window.location.reload();
 }
 
 //switching to the Game Screen from Instructions
 playFromInstruct.onclick = function () {
     let result = gameScreen.hasAttribute("hidden");
     if (result = true) {
-        clearInterval();
         gameScreen.classList.remove('hidden');
         howToMenu.classList.add('hidden');
     } else {
@@ -94,28 +78,20 @@ playFromInstruct.onclick = function () {
     }
 }
 
-//switching to the Game Screen from Score Screen
-tryAgainButton.onclick = function () {
-    let result = gameScreen.hasAttribute("hidden");
-    if (result = true) {
-        clearInterval();
-        gameScreen.classList.remove('hidden');
-        scoreScreen.classList.add('hidden');
-    } else {
-        console.log("it's visible")
-    }
-}
+// //switching to the Game Screen from Score Screen
+// tryAgainButton.onclick = function () {
+//     let result = gameScreen.hasAttribute("hidden");
+//     if (result = true) {
+//         gameScreen.classList.remove('hidden');
+//         scoreScreen.classList.add('hidden');
+//     } else {
+//         console.log("it's visible")
+//     }
+// }
 
 //switching to the Main Menu from the Score Screen
 menuFromScore.onclick = function () {
-    let result = startScreen.hasAttribute("hidden");
-    if (result = true) {
-        clearInterval();
-        startScreen.classList.remove('hidden');
-        scoreScreen.classList.add('hidden');
-    } else {
-        console.log("it's visible")
-    }
+    window.location.reload();
 }
 
 //The Timer
@@ -127,11 +103,12 @@ let time;
 function countDown() {
     time--;
     timerElement.textContent = time;
+    // console.log(time); // added in just to keep track of the time // avery :D
     if (time === 0) {
         action();
         timer = clearInterval(timer); // remove from pool
         time = 60;
-        // timer = setInterval(countDown, 1000); // add to pool
+        timer = setInterval(countDown, 1000); // add to pool
     }
 }
 
@@ -140,7 +117,7 @@ function action() {
     scoreScreen.classList.remove('hidden');
 }
 
-startButton.addEventListener('click', function (e) {
+startButton.addEventListener('mouseup', function (e) {
     if (timer === undefined) {
         time = 60;
         timer = setInterval(countDown, 1000);
@@ -186,13 +163,13 @@ function generateRandomFlavor() {
 let randomBoolean = Math.random() < 0.5;
 
 //the customers order as an object
-function randomCustomerOrder() {
-    let customerOrder = {
-        'shots': [true, generateRandomNumberShots()],
-        'milks': [randomBoolean, generateRandomNumber()],
-        'sugars': [randomBoolean, generateRandomNumber()],
-        'pumps': [randomBoolean, generateRandomNumber()],
-        'flavors': [randomBoolean, generateRandomFlavor()],
+function newCustomerOrder() {
+let customerOrder = {
+    'shots': [true, generateRandomNumberShots()],
+    'milks': [randomBoolean, generateRandomNumber()],
+    'sugars': [randomBoolean, generateRandomNumber()],
+    'pumps': [randomBoolean, generateRandomNumber()],
+    'flavors': [randomBoolean, generateRandomFlavor()],
     };
     return customerOrder;
 };
@@ -245,10 +222,8 @@ function buildCustomerOrder() {
         let milksOrder = customerOrder.milks[1] + " pumps of " + customerOrder.flavors[1] + "!";
         finalOrderArr.push(milksOrder);
     }
-    let orderBox = document.getElementById("customer-order");
-    orderBox.textContent = finalOrderArr.join(' ');
+    return finalOrderArr.join(' ');
 };
-
 //The Player Order
 /*The Player also has a coffee object similar to the customer order
 by pressing the player buttons, it adjusts the players coffee object to match
@@ -268,14 +243,13 @@ let potentialTips = [];
 /*a series functions mapped to the player buttons to adjust the
 *Player Order and the visual buttons to match*/
 function addShot() {
-    let i = 1
     if (playerOrder.shots[1] <= 2) {
         playerOrder.shots[1] = playerOrder.shots[1] + 1;
         playerOrder.shots[0] = true;
         shotsButton.textContent = "Shots " + playerOrder.shots[1];
     };
     console.log(playerOrder);
-    return;
+    return  playerOrder;
 }
 shotsButton.addEventListener('click', addShot);
 
@@ -286,7 +260,7 @@ function addMilk() {
         milkButton.textContent = "Milk " + playerOrder.milks[1];
     };
     console.log(playerOrder);
-    return;
+    return  playerOrder;
 }
 milkButton.addEventListener('click', addMilk);
 
@@ -297,7 +271,7 @@ function addSugar() {
         sugarButton.textContent = "Sugar " + playerOrder.sugars[1];
     };
     console.log(playerOrder);
-    return;
+    return playerOrder;
 }
 sugarButton.addEventListener('click', addSugar);
 
@@ -308,7 +282,7 @@ function addPump() {
         pumpsButton.textContent = "Pumps " + playerOrder.pumps[1];
     };
     console.log(playerOrder);
-    return;
+    return playerOrder;
 }
 pumpsButton.addEventListener('click', addPump);
 
@@ -327,12 +301,19 @@ function resetCoffee(e) {
     pumpsButton.textContent = "Pump ";
     console.log(playerOrder);
     e.preventDefault();
-    return;
+    return playerOrder;
 }
 resetButton.addEventListener('click', resetCoffee);
 
-function compareOrders() {
-    if (customerOrder.shots == playerOrder.shots);
-    console.log
+function serveCoffee(e) {
+    console.log('hey');
+      
 }
-serveButton.addEventListener('click', compareOrders);
+serveButton.addEventListener('click', serveCoffee)
+
+function gameStart() {
+    console.log('yo');
+}
+startButton.addEventListener('click', gameStart);
+
+//start the game
