@@ -15,8 +15,10 @@
         <div class="screen start">
                 <!-- the start screen for the game -->
                 <h1 id="title">coffee RUSH</h1>
-                <button class="switch" id="how-to">How To Play</button>
-                <button class="switch" id="play-game">Play The Game</button>
+                <div class="button-container">
+                    <button class="switch" id="how-to">How To Play</button>
+                    <button class="switch" id="play-game">Play The Game</button>
+                </div>
         </div>
         <div class="screen instructions hidden">
             <!-- The instructions screen -->
@@ -32,44 +34,54 @@
                 If the order is wrong, you get no tips and move on to the next order.<br>
                 Complete as many orders as you can in 60 seconds and earn those Tips!<br>
             </p>
-            <button class="main-menu switch" id="main-menu2">Main Menu</button>
-            <button class="play-game switch" id="play-game2">Play The Game</button>
+            <div class="button-container">
+                <button class="main-menu switch" id="main-menu2">Main Menu</button>
+                <button class="play-game switch" id="play-game2">Play The Game</button>
+            </div>
         </div>
         <div class="screen game hidden">
             <div class="container" id="top-half">
                 <button id="lets-start">Let's Make Coffee!</button>
-                <h3 id="score-window">Tips</h3>
-                <div class="box">
-                <span id="score">0</span>
+                <div id="score-section">
+                    <h3 id="score-window">Tips</h3>
+                    <div class="box">
+                    <span id="score">0</span>
+                    </div>
                 </div>
-                <h3 id="time-left">Time Left</h3>
-                <div class="box">
-                <span id="timer"></span>
+                <div id="time-left-section">
+                    <h3 id="time-left">Time Left</h3>
+                    <div class="box">
+                    <span id="timer"></span>
                 </div>
-                <div class="box">
+                </div>
+                    <img src="./imgs/temp-image.jpg" alt="busy coffee shop"/>
+                <div class="box" id="customer-order-box">
                 <p id="customer-order"></p>
                 </div>
             </div>
             <div class="button-set" id="bottom-half">
                 <!-- use grid to arrange buttons -->
-                <button class="coffee-game" id="shots">Shots</button>
-                <button class="coffee-game" id="pumps">Pumps</button>
-                <button class="coffee-game" id="milk">Milk</button>
-                <button class="coffee-game" id="sugar">Sugar</button>
-                <button class="coffee-game" id="reset">Trash/Reset</button>
-                <button class="coffee-game" id="serve">Serve!</button>
+                <div class="coffee-button-grid">
+                    <button class="coffee-game" id="shots">Shots</button>
+                    <button class="coffee-game" id="pumps">Pumps</button>
+                    <button class="coffee-game" id="milk">Milk</button>
+                    <button class="coffee-game" id="sugar">Sugar</button>
+                    <button class="coffee-game" id="serve">Serve!</button>
+                </div>
             </div>
-            <div class="menu-how-to">
+            <div class="button-container reset-and-quit">
+                <button class="coffee-game" id="reset">Reset</button>
                 <button class="main-menu" id="quit">Quit</button>
             </div>
         </div>
         <div class="screen score hidden">
                 <!-- the scoring screen -->
             <h1>Pay Out</h1>
-            <h2>You made...</h3>
+            <h2>You made...</h2>
             <h1 id="final-score">(insert point amount here)</h1>
-            <!-- <button class="play-game switch" id="try-again">Try Again?</button> -->
-            <button class="main-menu switch" id="return">Main Menu</button>
+            <div id="pay-out-button">
+                <button class="main-menu switch" id="return">Main Menu</button>
+            </div>
         </div>
         </main>
     <script src="./js/app.js"></script>

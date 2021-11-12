@@ -220,7 +220,7 @@ let playerOrder = {
     'pumps': 0,
 };
 
-/*like the Player Order, this is just an empty vessel to hold the
+/*this is just an empty vessel to hold the
 added value of tips before printing it to the score bar*/
 let potentialTips = 0;
 

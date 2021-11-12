@@ -1,33 +1,183 @@
+/* Elements */
 
+body {
+    background-color: hsla(17, 79%, 23%, 1);
+}
+
+img {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    justify-self: stretch;
+    align-self: center;
+    max-width: auto;
+    max-height: 150px;
+    background-size: cover;
+}
 
 div {
+    display: grid;
+    grid-template-columns: 20px, 4fr, 20px;
+    grid-template-rows: 20px, 4fr, 20px;
     background-color: chocolate;
     color: white;
     padding: 10px;
-    margin: 10px;
+    border-radius: 10px;
+    background-size: cover;
 }
 
 button {
     padding: 10px ;
+    margin: 10px;
     border-radius: 10px;
     background-color: hsla(17, 79%, 23%, 1);
     color: cornsilk;
     font-family: 'Handlee', cursive;
+    text-align: center;
+    width: 150px;
+
 }
 
 h1, h2, h3 {
     font-family: 'Freehand', cursive;
+    text-align: center;
 }
 
 p {
     font-family: 'Handlee', cursive;
+    padding-top: 10px;
 }
 
-.hidden {
-    display: none
-}
+/* Classes */
 
 .box {
     background-color: black;
     color: white;
+    /* width: 25%; */
+}
+
+.start, .instructions, .score {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.reset-and-quit {
+    display: flex;
+    justify-content: space-between;
+}
+
+.coffee-game {
+    width: 100px;
+    /* place-self: center stretch; */
+}
+
+.button-set {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.coffee-button-grid {
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    column-gap: 5px;
+    row-gap: 5px;
+}
+
+/* .hidden {
+    display: none
+} */
+
+/* IDs */
+
+/* The shots/milks/sugars/pumps/serve buttons */
+#shots {
+    grid-column-start: 2;
+}
+
+#pumps {
+    grid-column-start: 2;
+    grid-row-start: 3;
+}
+
+#milk {
+    grid-column-start: 1;
+    grid-row-start: 2;
+}
+
+#sugar {
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+
+#serve {
+    grid-column-start: 3;
+    grid-row-start: 2;
+}
+/* end game buttons */
+
+#top-half {
+    display: grid;
+    grid-template-columns: 10px 1fr 1fr 1fr 10px;
+    grid-template-rows: 10px 1fr 200px 1fr 10px;
+    column-gap: 5px;
+    row-gap: 5px;
+}
+
+/* #score-section, #time-left-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+
+#time-left-section {
+    grid-column-start: 2;
+    grid-row-start: 2;
+    justify-self: stretch;
+}
+
+#lets-start {
+    grid-column-start: 3;
+    grid-row-start: 2;
+    justify-self: center;
+    align-self: start;
+}
+
+#score-section {
+    grid-column-start: 4;
+    grid-row-start: 2;
+    justify-self: stretch;
+}
+
+#customer-order-box {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    justify-self: stretch;
+    align-self: stretch;
+}
+
+#final-score {
+    background-color: black;
+    width: 50%;
+    text-align: center;
+}
+
+#pay-out-button {
+    display: flex;
+    justify-content: center;
+}
+
+#quit, #reset {
+    width: 75px;
 }
