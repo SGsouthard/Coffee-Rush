@@ -1,8 +1,7 @@
 # coffee RUSH 
----
 ## A barista simulator
----
-### How to Play<br>
+### How to Play
+<br>
 Play the Game [Here](https://sgsouthard.github.io/)
 <br>
 You are the only barista on the clock right now.<br>
@@ -22,12 +21,14 @@ Complete as many orders as you can in 60 seconds and earn those Tips!<br>
 ---
 This game utilizes button presses to work, so everything came down to functions to properly work. 
 
-**Switching Screens**<br>
+**Switching Screens**
+<br>
 ---
 Everything is on one index page so I seperated the game screens into Divs and have a hidden class in the CSS that turns the display to none.
 ((insert screenshot showing the html next to the css))
 
-I had a function to switch screens and adjust the hidden class depending on what screen was currently active. Switching to the Main Menu or Quitting the game resets the page entirely.<br>
+I had a function to switch screens and adjust the hidden class depending on what screen was currently active. Switching to the Main Menu or Quitting the game resets the page entirely.
+<br>
 ```
 //Switching Screens
 
@@ -138,6 +139,7 @@ function generateRandomFlavor() {
 ```
 <br>
 Then I made an object to contain the customer order and a function to randomize the customer order each time it's called
+
 ```
 let customerOrder = {};
 
