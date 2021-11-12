@@ -168,11 +168,11 @@ let customerOrder = {};
 //the customers order as an object
 function newCustomerOrder() {
     customerOrder = {
-    'shots': generateRandomNumberShots(),
-    'milks': generateRandomNumber(),
-    'sugars': generateRandomNumber(),
-    'pumps': generateRandomNumber(),
-    'flavors': generateRandomFlavor()
+        'shots': generateRandomNumberShots(),
+        'milks': generateRandomNumber(),
+        'sugars': generateRandomNumber(),
+        'pumps': generateRandomNumber(),
+        'flavors': generateRandomFlavor()
     };
     return customerOrder;
 };
@@ -248,7 +248,7 @@ function addShot() {
         shotsButton.textContent = "Shots " + playerOrder.shots;
     };
     console.log(playerOrder);
-    return  playerOrder, potentialTips;
+    return playerOrder, potentialTips;
 }
 shotsButton.addEventListener('click', addShot);
 
@@ -259,7 +259,7 @@ function addMilk() {
         potentialTips = potentialTips + 0.50;
     };
     console.log(playerOrder);
-    return  playerOrder, potentialTips;
+    return playerOrder, potentialTips;
 }
 milkButton.addEventListener('click', addMilk);
 
@@ -295,7 +295,7 @@ function resetCoffee(e) {
     playerOrder.pumps = 0;
     pumpsButton.textContent = "Pump ";
     console.log(playerOrder);
-    if (e){
+    if (e) {
         e.preventDefault();
     }
     return playerOrder;
@@ -314,7 +314,7 @@ function serveCoffee() {
     } else if (customerOrder.sugars !== playerOrder.sugars) {
         resetCoffee();
         buildCustomerOrder();
-        return; 
+        return;
     } else if (customerOrder.pumps !== playerOrder.pumps) {
         resetCoffee();
         buildCustomerOrder();
@@ -336,5 +336,38 @@ function gameStart() {
     buildCustomerOrder();
 }
 startButton.addEventListener('click', gameStart);
+
+document.addEventListener('keydown', buttonPresses);
+
+function buttonPresses(e) {
+    console.log('button press', e.key);
+
+    switch (e.key) {
+        case 'w', 'ArrowUp':
+            //add espresso shot
+            addShot();
+            break;
+        case 'a', 'ArrowLeft':
+            //add milks
+            addMilk();
+            break;
+        case 'd', 'ArrowRight':
+            //add sugar
+            addSugar();
+            break;
+        case 's', 'ArrowDown':
+            //add pumps
+            addPump();
+            break;
+        case 'Space':
+            //serve coffee
+            serveCoffee();
+            break;
+        case 't':
+            //trash the order
+            resetCoffee();
+            break;
+    }
+}
 
 //start the game
