@@ -3,7 +3,6 @@ let howToButton = document.querySelector("#how-to");
 let playGameButton = document.querySelector("#play-game");
 let menuFromInstruct = document.querySelector("#main-menu2");
 let playFromInstruct = document.querySelector("#play-game2");
-// let tryAgainButton = document.querySelector("#try-again");
 let quitButton = document.querySelector("#quit");
 let makeCoffeeButton = document.getElementById("lets-start");
 let menuFromScore = document.querySelector("#return");
@@ -79,17 +78,6 @@ playFromInstruct.onclick = function () {
     }
 }
 
-// //switching to the Game Screen from Score Screen
-// tryAgainButton.onclick = function () {
-//     let result = gameScreen.hasAttribute("hidden");
-//     if (result = true) {
-//         gameScreen.classList.remove('hidden');
-//         scoreScreen.classList.add('hidden');
-//     } else {
-//         console.log("it's visible")
-//     }
-// }
-
 //switching to the Main Menu from the Score Screen
 menuFromScore.onclick = function () {
     window.location.reload();
@@ -125,8 +113,6 @@ startButton.addEventListener('mouseup', function (e) {
     }
 });
 
-//The Tip Counter
-
 
 //The Order
 
@@ -160,9 +146,7 @@ function generateRandomFlavor() {
     return coffeeOrder.flavors[i];
 };
 
-//random boolean generator
-// let randomBoolean = Math.random() < 0.5; //fix to vary per call
-
+//the customer order variable itself
 let customerOrder = {};
 
 //the customers order as an object
@@ -240,8 +224,14 @@ let playerOrder = {
 added value of tips before printing it to the score bar*/
 let potentialTips = 0;
 
-/*a series functions mapped to the player buttons to adjust the
+/*a series of functions mapped to the player buttons to adjust the
 *Player Order and the visual buttons to match*/
+
+/*
+adds a shot to the player object, and updates the button
+to reflect how many shots are in the order.
+Each button press adds $0.50 to the tips score.
+*/
 function addShot() {
     if (playerOrder.shots <= 2) {
         playerOrder.shots = playerOrder.shots + 1;
@@ -252,6 +242,11 @@ function addShot() {
 }
 shotsButton.addEventListener('click', addShot);
 
+/*
+adds a milk to the player object, and updates the button
+to reflect how many milks are in the order
+Each button press adds $0.50 to the tips score.
+*/
 function addMilk() {
     if (playerOrder.milks <= 2) {
         playerOrder.milks = playerOrder.milks + 1;
@@ -263,6 +258,11 @@ function addMilk() {
 }
 milkButton.addEventListener('click', addMilk);
 
+/*
+adds a sugar to the player object, and updates the button
+to reflect how many sugars are in the order
+Each button press adds $0.50 to the tips score.
+*/
 function addSugar() {
     if (playerOrder.sugars <= 2) {
         playerOrder.sugars = playerOrder.sugars + 1;
@@ -274,6 +274,11 @@ function addSugar() {
 }
 sugarButton.addEventListener('click', addSugar);
 
+/*
+adds a pump of flavor to the player object, and updates the button
+to reflect how many pumps of flavor are in the order
+Each button press adds $0.50 to the tips score.
+*/
 function addPump() {
     if (playerOrder.pumps <= 2) {
         playerOrder.pumps = playerOrder.pumps + 1;
@@ -285,6 +290,9 @@ function addPump() {
 }
 pumpsButton.addEventListener('click', addPump);
 
+/*
+Resets the player order object back to zero
+*/
 function resetCoffee(e) {
     playerOrder.shots = 0;
     shotsButton.textContent = "Shots ";
@@ -302,6 +310,14 @@ function resetCoffee(e) {
 }
 resetButton.addEventListener('click', resetCoffee);
 
+/*
+Compares the player order to the customer order.
+If any of the flags are triggered, it resets the
+Player order to zero, and generates a new customer order
+If none of the flags are triggered, it adds the 
+total tip score accumulated to the score box 
+and updates the final score
+*/
 function serveCoffee() {
     if (customerOrder.shots !== playerOrder.shots) {
         resetCoffee();
@@ -328,15 +344,8 @@ function serveCoffee() {
 };
 serveButton.addEventListener('click', serveCoffee);
 
-//score screen update
-let finalScore = document.getElementById("final-score");
-finalScore.textContent = '$' + potentialTips.toFixed(2);
-
-function gameStart() {
-    buildCustomerOrder();
-}
-startButton.addEventListener('click', gameStart);
-
+//setting up the buttons to be activated by key presses
+//as well as clicking the buttons
 document.addEventListener('keydown', buttonPresses);
 
 function buttonPresses(e) {
@@ -369,5 +378,19 @@ function buttonPresses(e) {
             break;
     }
 }
+
+//Final score screen update after the game is over
+let finalScore = document.getElementById("final-score");
+finalScore.textContent = '$' + potentialTips.toFixed(2);
+
+/*This starts the game when the "Let's make some coffee"
+*button is clicked, randomizing the first order.
+*the same button is hooked to the timer but using the 
+*'mouseup' listener so it only activates when the 
+*button is let go*/
+function gameStart() {
+    buildCustomerOrder();
+}
+startButton.addEventListener('click', gameStart);
 
 //start the game
