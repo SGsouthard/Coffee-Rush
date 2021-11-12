@@ -15,17 +15,16 @@ If the order is right, your Tips will go up!<br>
 If the order is wrong, you get no tips and move on to the next order.<br>
 Complete as many orders as you can in 60 seconds and earn those Tips!
 
----
 ## Screenshots
 
 (maybe)
----
+
 ### Code Snippets
 
 This game utilizes button presses to work, so everything came down to functions to properly work. 
 
 **Switching Screens**
----
+
 Everything is on one index page so I seperated the game screens into Divs and have a hidden class in the CSS that turns the display to none.
 ((insert screenshot showing the html next to the css))
 
@@ -95,11 +94,11 @@ menuFromScore.onclick = function () {
 ```
 
 **The Customer Algorithm**<br>
----
+
 I wanted the game to randomly generate the customers orders each time so that you couldn't memorize them and they would always be different.
 
 To start with I had to set up a few things.
----
+
 I made a base coffee order as a template to pull from. Flavors are not selected by the player and are just *"Flavor Text"*
 
 ```ruby
@@ -158,7 +157,7 @@ function newCustomerOrder() {
     return customerOrder;
 };
 ```
----
+
 
 **The Player Order**
 
