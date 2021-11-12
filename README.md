@@ -1,6 +1,7 @@
 # coffee RUSH 
-## A barista simulator
-### How to Play
+
+## How to Play
+
 <br>
 Play the Game [Here](https://sgsouthard.github.io/ "Title")
 
@@ -13,12 +14,14 @@ If you messed up the order, you can click the Trash button or T to start the ord
 If the order is right, your Tips will go up!<br>
 If the order is wrong, you get no tips and move on to the next order.<br>
 Complete as many orders as you can in 60 seconds and earn those Tips!
+
 ---
-### Screenshots
+## Screenshots
+
 (maybe)
 ---
 ### Code Snippets
----
+
 This game utilizes button presses to work, so everything came down to functions to properly work. 
 
 **Switching Screens**
@@ -272,6 +275,7 @@ finalScore.textContent = '$' + potentialTips.toFixed(2);
 ### Blockers and Future Plans
 - I wanted to try and implement Booleans in order to change whether a key in the customerOrder object would display at all, like if a value in the Milks key was false, then the order could read;
 > 1 shot, 2 sugars, 1 pump of mocha
+
 Unfortunately it didn't work so I eliminated the booleans entirely. I think I could change the number generators to make 0 a stronger possibility. 
 - I'd like to implement the posibility of having customers calling actual orders, like a latte or a cappuccino which would affect how it's made, like having steaming milk becoming a step
 - I'd also like there to be trick orders to apply to the above idea like if someone asks for a cappuccino with no foam, then it would just be an americano and so on.
