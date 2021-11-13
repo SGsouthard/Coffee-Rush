@@ -352,30 +352,46 @@ function buttonPresses(e) {
     console.log('button press', e.key);
 
     switch (e.key) {
-        case 'w', 'ArrowUp':
+        case 'w':
             //add espresso shot
             addShot();
             break;
-        case 'a', 'ArrowLeft':
+        case 'ArrowUp':
+            //add espresso shot
+            addShot();
+            break;
+        case 'a':
             //add milks
             addMilk();
             break;
-        case 'd', 'ArrowRight':
+        case 'ArrowLeft':
+            //add milks
+            addMilk();
+            break;
+        case 'd':
             //add sugar
             addSugar();
             break;
-        case 's', 'ArrowDown':
+        case 'ArrowRight':
+            //add sugar
+            addSugar();
+            break;
+        case 's':
             //add pumps
             addPump();
             break;
-        case 'Space':
-            //serve coffee
-            serveCoffee();
+        case 'ArrowDown':
+            //add pumps
+            addPump();
             break;
-        case 't':
-            //trash the order
-            resetCoffee();
-            break;
+        // case 'Space':
+        //     //serve coffee
+        //     serveCoffee();
+        //     break;
+        // case 't':
+        //     //trash the order
+        //     resetCoffee();
+        //     break;
     }
 }
 

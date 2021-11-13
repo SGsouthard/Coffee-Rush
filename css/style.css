@@ -118,12 +118,12 @@ span {
 }
 
 #sugar {
-    grid-column-start: 2;
+    grid-column-start: 3;
     grid-row-start: 2;
 }
 
 #serve {
-    grid-column-start: 3;
+    grid-column-start: 2;
     grid-row-start: 2;
 }
 /* end game buttons */
