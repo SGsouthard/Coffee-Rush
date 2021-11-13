@@ -13,27 +13,27 @@ img {
     justify-self: stretch;
     align-self: center;
     max-width: auto;
-    max-height: 150px;
+    max-height: 9.375em;
     background-size: cover;
 }
 
 div.start, div.instructions, div.game, div.score {
     background-color: chocolate;
     color: white;
-    padding: 10px;
-    border-radius: 10px;
+    padding: 0.625em;
+    border-radius: 0.625em;
     background-size: cover;
 }
 
 button {
-    padding: 10px ;
-    margin: 10px;
-    border-radius: 10px;
+    padding: 0.625em ;
+    margin: 0.625em;
+    border-radius: 0.625em;
     background-color: hsla(17, 79%, 23%, 1);
     color: cornsilk;
     font-family: 'Handlee', cursive;
     text-align: center;
-    width: 150px;
+    width: 9.375em;
 
 }
 
@@ -44,13 +44,13 @@ h1, h2, h3 {
 
 p {
     font-family: 'Handlee', cursive;
-    padding-top: 10px;
+    padding-top: 0.625em;
 }
 
 span {
     text-align: center;
-    height: 20px;
-    width: 30px;
+    height: 1.25em;
+    width: 1.875em;
 }
 
 /* Classes */
@@ -78,7 +78,7 @@ span {
 }
 
 .coffee-game {
-    width: 100px;
+    width: 6.25em;
 }
 
 .button-set {
@@ -91,8 +91,8 @@ span {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    column-gap: 5px;
-    row-gap: 5px;
+    column-gap: 0.3125em;
+    row-gap: 0.3125em;
 }
 
 .hidden {
@@ -129,10 +129,10 @@ span {
 
 #top-half {
     display: grid;
-    grid-template-columns: 10px 1fr 2fr 1fr 10px;
-    grid-template-rows: 10px 1fr 200px 1fr 10px;
-    column-gap: 5px;
-    row-gap: 5px;
+    grid-template-columns: 0.625em 1fr 2fr 1fr 0.625em;
+    grid-template-rows: 0.625em 1fr 12.5em 1fr 0.625em;
+    column-gap: 0.3125em;
+    row-gap: 0.3125em;
 }
 
 #bottom-half {
@@ -168,7 +168,7 @@ span {
 }
 
 #customer-order-box {
-    margin-bottom: -20px;
+    margin-bottom: -1.25em;
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 4;
@@ -185,7 +185,7 @@ span {
     background-color: black;
     width: 30%;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 0.625em;
 }
 
 #pay-out-button {
@@ -194,5 +194,5 @@ span {
 }
 
 #quit, #reset {
-    width: 75px;
+    width: 4.6875em;
 }
