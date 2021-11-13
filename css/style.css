@@ -51,6 +51,7 @@ span {
     text-align: center;
     height: 1.25em;
     width: 1.875em;
+    border-radius: 1em;
 }
 
 /* Classes */
@@ -130,7 +131,7 @@ span {
 #top-half {
     display: grid;
     grid-template-columns: 0.625em 1fr 2fr 1fr 0.625em;
-    grid-template-rows: 0.625em 1fr 12.5em 1fr 0.625em;
+    grid-template-rows: 0.625em 1fr 10em 1fr 0.625em;
     column-gap: 0.3125em;
     row-gap: 0.3125em;
 }
@@ -168,24 +169,27 @@ span {
 }
 
 #customer-order-box {
-    margin-bottom: -1.25em;
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 4;
+    border-radius: 1em;
 }
 
 #time-left-box, #score-box {
-    width: 75px;
+    width: 5em;
+    height: 1.5em;
     justify-self: center;
     text-align: center;
     align-self: center;
+    border-radius: 1em;
+    padding: 1em;
 }
 
 #final-score {
     background-color: black;
     width: 30%;
     text-align: center;
-    border-radius: 0.625em;
+    border-radius: 1em;
 }
 
 #pay-out-button {
@@ -194,5 +198,5 @@ span {
 }
 
 #quit, #reset {
-    width: 4.6875em;
+    width: 5em;
 }
