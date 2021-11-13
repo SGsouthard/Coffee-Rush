@@ -2,11 +2,13 @@
 
 body {
     background-color: hsla(17, 79%, 23%, 1);
+    font-family: 'Handlee', cursive;
+    text-align: center;
 }
 
 img {
-    grid-column-start: 2;
-    grid-column-end: 5;
+    grid-column-start: 3;
+    grid-column-end: 4;
     grid-row-start: 3;
     justify-self: stretch;
     align-self: center;
@@ -48,12 +50,17 @@ p {
     padding-top: 10px;
 }
 
+span {
+    text-align: center;
+    height: 20px;
+    width: 30px;
+}
+
 /* Classes */
 
 .box {
     background-color: black;
     color: white;
-    /* width: 25%; */
 }
 
 .start, .instructions, .score {
@@ -75,7 +82,6 @@ p {
 
 .coffee-game {
     width: 100px;
-    /* place-self: center stretch; */
 }
 
 .button-set {
@@ -85,7 +91,6 @@ p {
 }
 
 .coffee-button-grid {
-    width: 50%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -127,18 +132,18 @@ p {
 
 #top-half {
     display: grid;
-    grid-template-columns: 10px 1fr 1fr 1fr 10px;
+    grid-template-columns: 10px 1fr 2fr 1fr 10px;
     grid-template-rows: 10px 1fr 200px 1fr 10px;
     column-gap: 5px;
     row-gap: 5px;
 }
 
-/* #score-section, #time-left-section {
+#bottom-half {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-} */
+}
 
 #time-left-section {
     grid-column-start: 2;
@@ -160,17 +165,23 @@ p {
 }
 
 #customer-order-box {
+    margin-bottom: -20px;
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 4;
-    justify-self: stretch;
-    align-self: stretch;
+}
+
+#time-left-box, #score-box {
+    width: 75px;
+    justify-self: center;
+    text-align: center;
 }
 
 #final-score {
     background-color: black;
-    width: 50%;
+    width: 30%;
     text-align: center;
+    border-radius: 10px;
 }
 
 #pay-out-button {
