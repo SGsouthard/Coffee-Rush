@@ -278,6 +278,7 @@ finalScore.textContent = '$' + potentialTips.toFixed(2);
 Unfortunately it didn't work so I eliminated the booleans entirely. I think I could change the number generators to make 0 a stronger possibility. 
 - I'd like to implement the posibility of having customers calling actual orders, like a latte or a cappuccino which would affect how it's made, like having steaming milk becoming a step
 - I'd also like there to be trick orders to apply to the above idea like if someone asks for a cappuccino with no foam, then it would just be an americano and so on.
+- I initially wanted this to be optimized for mobile but it's not quite there yet. Hopefully soon!!
 
 ### Final Takeaway
 This project was fun!! I'm actually already thinking of new game ideas to try and implement with more of the knowledge I'll get from the rest of the class!
