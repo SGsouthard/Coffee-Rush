@@ -17,10 +17,7 @@ img {
     background-size: cover;
 }
 
-div {
-    display: grid;
-    grid-template-columns: 20px, 4fr, 20px;
-    grid-template-rows: 20px, 4fr, 20px;
+div.start, div.instructions, div.game, div.score {
     background-color: chocolate;
     color: white;
     padding: 10px;
@@ -146,6 +143,9 @@ span {
 }
 
 #time-left-section {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
     grid-column-start: 2;
     grid-row-start: 2;
     justify-self: stretch;
@@ -159,6 +159,9 @@ span {
 }
 
 #score-section {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
     grid-column-start: 4;
     grid-row-start: 2;
     justify-self: stretch;
@@ -175,6 +178,7 @@ span {
     width: 75px;
     justify-self: center;
     text-align: center;
+    align-self: center;
 }
 
 #final-score {
