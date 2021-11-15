@@ -14,6 +14,11 @@ div.start, div.instructions, div.game, div.score {
     background-size: cover;
 }
 
+div.instructions {
+    padding-left: 4em;
+    padding-right: 4em;
+}
+
 button {
     padding: 0.625em ;
     margin: 0.625em;
