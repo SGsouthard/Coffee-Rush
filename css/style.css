@@ -75,7 +75,7 @@ span {
 
 .reset-and-quit {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .coffee-game {
