@@ -34,7 +34,10 @@ button {
     font-family: 'Handlee', cursive;
     text-align: center;
     width: 9.375em;
+}
 
+button:hover {
+    background-color: hsla(17, 79%, 32%, 1);
 }
 
 h1, h2, h3 {
@@ -200,3 +203,4 @@ span {
 #quit, #reset {
     width: 5em;
 }
+

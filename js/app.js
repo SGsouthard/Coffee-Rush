@@ -230,6 +230,7 @@ function addShot() {
         playerOrder.shots = playerOrder.shots + 1;
         shotsButton.textContent = "Shots " + playerOrder.shots;
     };
+    shotsButton.style.backgroundColor = "hsla(26, 100%, 34%, 1)";
     return playerOrder, potentialTips;
 }
 shotsButton.addEventListener('click', addShot);
@@ -245,6 +246,7 @@ function addMilk() {
         milkButton.textContent = "Milk " + playerOrder.milks;
         potentialTips = potentialTips + 0.50;
     };
+    milkButton.style.backgroundColor = "hsla(26, 100%, 34%, 1)";
     return playerOrder, potentialTips;
 }
 milkButton.addEventListener('click', addMilk);
@@ -260,6 +262,7 @@ function addSugar() {
         sugarButton.textContent = "Sugar " + playerOrder.sugars;
         potentialTips = potentialTips + 0.50;
     };
+    sugarButton.style.backgroundColor = "hsla(26, 100%, 34%, 1)";
     return playerOrder, potentialTips;
 }
 sugarButton.addEventListener('click', addSugar);
@@ -275,6 +278,7 @@ function addPump() {
         pumpsButton.textContent = "Pumps " + playerOrder.pumps;
         potentialTips = potentialTips + 0.50;
     };
+    pumpsButton.style.backgroundColor = "hsla(26, 100%, 34%, 1)";
     return playerOrder, potentialTips;
 }
 pumpsButton.addEventListener('click', addPump);
@@ -294,6 +298,10 @@ function resetCoffee(e) {
     if (e) {
         e.preventDefault();
     }
+    shotsButton.style.backgroundColor = "hsla(17, 79%, 23%, 1)";
+    milkButton.style.backgroundColor = "hsla(17, 79%, 23%, 1)";
+    sugarButton.style.backgroundColor = "hsla(17, 79%, 23%, 1)";
+    pumpsButton.style.backgroundColor = "hsla(17, 79%, 23%, 1)";
     return playerOrder;
 }
 resetButton.addEventListener('click', resetCoffee);
