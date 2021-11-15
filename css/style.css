@@ -6,17 +6,6 @@ body {
     text-align: center;
 }
 
-img {
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 3;
-    justify-self: stretch;
-    align-self: center;
-    max-width: auto;
-    max-height: 9.375em;
-    background-size: cover;
-}
-
 div.start, div.instructions, div.game, div.score {
     background-color: chocolate;
     color: white;
