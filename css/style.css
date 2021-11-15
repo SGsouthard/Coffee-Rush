@@ -129,8 +129,6 @@ span {
     display: grid;
     grid-template-columns: 0.625em 1fr 1fr 1fr 0.625em;
     grid-template-rows: 0.625em 1fr 10em 1fr 0.625em;
-    column-gap: 0.3125em;
-    row-gap: 0.3125em;
 }
 
 #bottom-half {
@@ -170,6 +168,15 @@ span {
     grid-column-end: 4;
     grid-row-start: 4;
     border-radius: 1em;
+}
+
+@media only screen and (max-width: 600px) {
+    #customer-order-box {
+        grid-column-start: 2;
+        grid-column-end: 5;
+        grid-row-start: 4;
+        border-radius: 1em;
+    }
 }
 
 #time-left-box, #score-box {
