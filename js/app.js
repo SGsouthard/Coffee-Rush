@@ -31,7 +31,6 @@ document.onload = function () {
     if (result = true) {
         startScreen.classList.remove('hidden');
     } else {
-        console.log("it's visible");
     }
 }
 
@@ -42,7 +41,6 @@ howToButton.onclick = function () {
         howToMenu.classList.remove('hidden');
         startScreen.classList.add('hidden');
     } else {
-        console.log("it's visible");
     }
 }
 
@@ -53,7 +51,6 @@ playGameButton.onclick = function () {
         gameScreen.classList.remove('hidden');
         startScreen.classList.add('hidden');
     } else {
-        console.log("it's visible");
     }
 }
 
@@ -74,7 +71,6 @@ playFromInstruct.onclick = function () {
         gameScreen.classList.remove('hidden');
         howToMenu.classList.add('hidden');
     } else {
-        console.log("it's visible");
     }
 }
 
@@ -83,7 +79,7 @@ menuFromScore.onclick = function () {
     window.location.reload();
 }
 
-//The Timer
+//The Timer. Thanks for all the help Avery and Perice!
 
 const timerElement = document.querySelector('#timer');
 const startButton = makeCoffeeButton
@@ -92,7 +88,6 @@ let time;
 function countDown() {
     time--;
     timerElement.textContent = time;
-    // console.log(time); // added in just to keep track of the time // avery :D
     if (time === 0) {
         action();
         timer = clearInterval(timer); // remove from pool
@@ -142,7 +137,6 @@ function generateRandomNumberShots() {
 //random flavor generator
 function generateRandomFlavor() {
     let i = Math.floor((Math.random() * 4));
-    // console.log(coffeeOrder.flavors[i]);
     return coffeeOrder.flavors[i];
 };
 
@@ -164,7 +158,6 @@ function newCustomerOrder() {
 //Builds the customer order
 function buildCustomerOrder() {
     let customerOrder = newCustomerOrder();
-    // console.log(customerOrder);
 
     let finalOrderArr = [];
 
@@ -237,7 +230,6 @@ function addShot() {
         playerOrder.shots = playerOrder.shots + 1;
         shotsButton.textContent = "Shots " + playerOrder.shots;
     };
-    console.log(playerOrder);
     return playerOrder, potentialTips;
 }
 shotsButton.addEventListener('click', addShot);
@@ -253,7 +245,6 @@ function addMilk() {
         milkButton.textContent = "Milk " + playerOrder.milks;
         potentialTips = potentialTips + 0.50;
     };
-    console.log(playerOrder);
     return playerOrder, potentialTips;
 }
 milkButton.addEventListener('click', addMilk);
@@ -269,7 +260,6 @@ function addSugar() {
         sugarButton.textContent = "Sugar " + playerOrder.sugars;
         potentialTips = potentialTips + 0.50;
     };
-    console.log(playerOrder);
     return playerOrder, potentialTips;
 }
 sugarButton.addEventListener('click', addSugar);
@@ -285,7 +275,6 @@ function addPump() {
         pumpsButton.textContent = "Pumps " + playerOrder.pumps;
         potentialTips = potentialTips + 0.50;
     };
-    console.log(playerOrder);
     return playerOrder, potentialTips;
 }
 pumpsButton.addEventListener('click', addPump);
@@ -302,7 +291,6 @@ function resetCoffee(e) {
     sugarButton.textContent = "Sugar ";
     playerOrder.pumps = 0;
     pumpsButton.textContent = "Pump ";
-    console.log(playerOrder);
     if (e) {
         e.preventDefault();
     }
@@ -349,7 +337,6 @@ serveButton.addEventListener('click', serveCoffee);
 document.addEventListener('keydown', buttonPresses);
 
 function buttonPresses(e) {
-    console.log('button press', e.key);
 
     switch (e.key) {
         case 'w':
