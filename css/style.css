@@ -127,7 +127,7 @@ span {
 
 #top-half {
     display: grid;
-    grid-template-columns: 0.625em 1fr 2fr 1fr 0.625em;
+    grid-template-columns: 0.625em 1fr 1fr 1fr 0.625em;
     grid-template-rows: 0.625em 1fr 10em 1fr 0.625em;
     column-gap: 0.3125em;
     row-gap: 0.3125em;
