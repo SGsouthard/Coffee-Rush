@@ -15,10 +15,6 @@ If the order is right, your Tips will go up!<br>
 If the order is wrong, you get no tips and move on to the next order.<br>
 Complete as many orders as you can in 60 seconds and earn those Tips!
 
-## Screenshots
-
-(maybe)
-
 ### Code Snippets
 
 This game utilizes button presses to work, so everything came down to functions to properly work. 
