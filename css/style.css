@@ -4,6 +4,9 @@ body {
     background-color: hsla(17, 79%, 23%, 1);
     font-family: 'Handlee', cursive;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 div.start, div.instructions, div.game, div.score {
@@ -12,11 +15,13 @@ div.start, div.instructions, div.game, div.score {
     padding: 0.625em;
     border-radius: 0.625em;
     background-size: cover;
+    width: 500px;
 }
 
 div.instructions {
     padding-left: 4em;
     padding-right: 4em;
+    width: 500px;
 }
 
 button {
@@ -56,6 +61,7 @@ span {
 .box {
     background-color: black;
     color: white;
+    width: 250px;
 }
 
 .start, .instructions, .score {
@@ -170,7 +176,7 @@ span {
     border-radius: 1em;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 400px) {
     #customer-order-box {
         grid-column-start: 2;
         grid-column-end: 5;

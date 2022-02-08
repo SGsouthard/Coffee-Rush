@@ -306,6 +306,14 @@ function resetCoffee(e) {
 }
 resetButton.addEventListener('click', resetCoffee);
 
+function resetScore(e) {
+    if (potentialTips > 0) {
+        potentialTips = 0.00
+    }
+    e.preventDefault();
+    return potentialTips;
+}
+
 /*
 Compares the player order to the customer order.
 If any of the flags are triggered, it resets the
@@ -401,6 +409,7 @@ finalScore.textContent = '$' + potentialTips.toFixed(2);
 *button is let go*/
 function gameStart() {
     buildCustomerOrder();
+    resetScore();
 }
 startButton.addEventListener('click', gameStart);
 
