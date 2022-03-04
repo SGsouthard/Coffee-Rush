@@ -3,7 +3,7 @@
 ## How to Play
 
 <br>
-Play the Game [Here](https://sgsouthard.github.io/Coffee-Rush/)
+[Play the Game](https://sgsouthard.github.io/Coffee-Rush/)
 
 You are the only barista on the clock right now.<br>
 Take the customers orders and make their coffee as they ask.<br>
