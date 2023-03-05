@@ -340,12 +340,15 @@ function serveCoffee() {
         buildCustomerOrder();
         return;
     }
+
     score.textContent = '$' + potentialTips.toFixed(2);
     resetCoffee();
     buildCustomerOrder();
+
     let finalScore = document.getElementById("final-score");
     finalScore.textContent = '$' + potentialTips.toFixed(2);
 };
+
 serveButton.addEventListener('click', serveCoffee);
 
 //setting up the buttons to be activated by key presses
