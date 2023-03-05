@@ -106,6 +106,8 @@ startButton.addEventListener('mouseup', function (e) {
         time = 60;
         timer = setInterval(countDown, 1000);
     }
+
+    serveButton.classList.remove('hidden');
 });
 
 
